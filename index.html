@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MLA Condomínios | Administração de condomínios em Faro e Olhão</title>
-<meta name="description" content="Administração e gestão de condomínios no Algarve com gestão próxima, contas transparentes e resposta rápida. Peça um orçamento sem compromisso em Faro e Olhão.">
+<meta name="description" content="Administração e gestão de condomínios no Algarve com gestão próxima, contas transparentes e resposta rápida. Peça uma proposta sem compromisso em Faro e Olhão.">
 <link rel="icon" type="image/png" href="assets/identidade-visual/MLA_dourado_transparente.png">
 <meta property="og:title" content="MLA Condomínios | Administração de condomínios em Faro e Olhão">
-<meta property="og:description" content="Gestão próxima, contas transparentes e resposta rápida. Peça um orçamento sem compromisso e veja a diferença na forma como cuidamos.">
+<meta property="og:description" content="Gestão próxima, contas transparentes e resposta rápida. Peça uma proposta sem compromisso e veja a diferença na forma como cuidamos.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,8 +67,11 @@ section{position:relative}.center{text-align:center}.maxw{max-width:760px;margin
 .hero h1{font-size:clamp(28px,3.6vw,44px);font-weight:700;margin:0 0 18px;line-height:1.22;letter-spacing:.3px;color:var(--branco)}
 .hero .sub{font-size:clamp(16px,1.35vw,18px);max-width:540px;color:var(--texto);margin-bottom:20px}
 .hero .sub strong{color:var(--branco);font-weight:600}
-.hero-micro{display:inline-flex;align-items:center;gap:9px;background:rgba(201,162,75,.09);border:1px solid var(--linha);border-radius:12px;padding:11px 17px;font-size:14px;color:var(--gold-claro);font-weight:500}
-.hero-micro svg{width:19px;height:19px;flex-shrink:0;stroke:var(--gold-claro)}
+/* micro-linha de reforco: vive junto ao formulario na seccao final */
+.form-micro{display:inline-flex;align-items:center;gap:9px;background:rgba(201,162,75,.09);border:1px solid var(--linha);border-radius:12px;padding:11px 17px;font-size:14px;color:var(--gold-claro);font-weight:500;margin-bottom:16px}
+.form-micro svg{width:19px;height:19px;flex-shrink:0;stroke:var(--gold-claro)}
+.hero-cta{margin-top:6px}
+.hero-cta svg{width:22px;height:22px;fill:#161616;flex-shrink:0}
 
 /* orbe animado atras do hero-copy */
 .hero-orb{position:absolute;top:44%;left:-90px;width:340px;height:340px;transform:translateY(-50%);pointer-events:none;z-index:0}
@@ -77,46 +80,58 @@ section{position:relative}.center{text-align:center}.maxw{max-width:760px;margin
 .hero-orb .r1{width:210px;height:210px;animation:circSpin 30s linear infinite}
 .hero-orb .r2{width:264px;height:264px;border-color:rgba(201,162,75,.16);animation:circSpin 46s linear infinite reverse}
 .hero-copy{position:relative;z-index:1}
-/* selo giratorio no topo do hero (elemento de abertura, acima do pretitle) */
-.hero-copy .seal{width:150px;height:150px;margin:0 0 22px;z-index:2}
-.hero-copy .seal .seal-core{width:74px;height:74px}
-.hero-copy .seal .seal-core img{width:50px}
+/* marca na entrada: selo giratorio (maior) + wordmark MLA Condominios legivel ao lado */
+.hero-brand{display:flex;align-items:center;gap:26px;margin:0 0 26px;position:relative;z-index:2}
+.hero-copy .seal{flex:0 0 auto;width:184px;height:184px;margin:0;z-index:2}
+.hero-copy .seal .seal-core{width:92px;height:92px}
+.hero-copy .seal .seal-core img{width:64px}
+.hero-brand .brand-word{flex:0 1 auto;min-width:0}
+.hero-brand .brand-word img{width:100%;max-width:248px;height:auto;filter:drop-shadow(0 8px 22px rgba(0,0,0,.5))}
 .hero-copy .pretitle,.hero-copy h1{position:relative;z-index:1}
 @media(prefers-reduced-motion:reduce){.hero-orb .deco-ring{animation:none}}
-@media(max-width:600px){.hero-copy .seal{width:132px;height:132px;margin:0 auto 20px}.hero-copy .seal .seal-core{width:66px;height:66px}.hero-copy .seal .seal-core img{width:44px}}
-/* anel decorativo sobreposto no canto sup. direito do form */
-.form-orb{position:absolute;top:-34px;right:-34px;width:104px;height:104px;pointer-events:none;z-index:3}
+@media(max-width:600px){
+  .hero-brand{gap:14px;margin:0 0 22px}
+  .hero-copy .seal{width:124px;height:124px}
+  .hero-copy .seal .seal-core{width:62px;height:62px}
+  .hero-copy .seal .seal-core img{width:44px}
+  .hero-brand .brand-word img{max-width:158px}
+}
+/* anel decorativo sobreposto no canto sup. direito do form.
+   Seletor com 2 classes: .orc-form>* define position:relative e venceria por ordem. */
+.orc-form>.form-orb{position:absolute;top:-34px;right:-34px;width:104px;height:104px;pointer-events:none;z-index:3}
 .form-orb .fo-ring{position:absolute;inset:0;border-radius:50%;border:1.5px dashed rgba(201,162,75,.5);animation:circSpin 26s linear infinite}
 .form-orb .fo-ring.inner{inset:18px;border-color:rgba(231,200,120,.35);animation:circSpin 18s linear infinite reverse}
 .form-orb .fo-glow{position:absolute;inset:14px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,75,.28),transparent 66%)}
 @media(prefers-reduced-motion:reduce){.form-orb .fo-ring{animation:none}}
-@media(max-width:600px){.form-orb{width:78px;height:78px;top:-24px;right:-16px}}
+@media(max-width:600px){.orc-form>.form-orb{width:78px;height:78px;top:-24px;right:-16px}}
 
-/* ===== FORMULARIO com anel animado ===== */
-.hero-form{position:relative;padding:32px 30px 28px;border-radius:22px;background:var(--grad-card);box-shadow:0 24px 60px rgba(0,0,0,.5);z-index:1}
-.hero-form::before{content:"";position:absolute;inset:0;border-radius:22px;padding:1.6px;background:conic-gradient(from var(--angle),transparent 0deg,transparent 130deg,var(--gold) 210deg,var(--gold-claro) 265deg,#fff 300deg,var(--gold-claro) 330deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;animation:angleSpin 6s linear infinite;pointer-events:none;z-index:2}
-.hero-form>*{position:relative;z-index:1}
-.hero-form .fbadge{display:inline-flex;align-items:center;gap:6px;background:rgba(201,162,75,.14);border:1px solid var(--linha);color:var(--gold-claro);font-size:11.5px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;padding:5px 12px;border-radius:50px;margin-bottom:12px}
-.hero-form .ftitle{font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:var(--branco);margin-bottom:5px;letter-spacing:-.3px}
-.hero-form .fsub{font-size:13.5px;color:var(--texto2);margin-bottom:18px;line-height:1.5}
-.hero-form .frow{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-.hero-form .field{margin-bottom:11px}
-.hero-form label{display:block;font-size:11.5px;font-weight:600;letter-spacing:.4px;color:var(--gold-claro);margin-bottom:5px}
-.hero-form input,.hero-form textarea{width:100%;background:rgba(19,22,25,.7);border:1px solid rgba(201,162,75,.2);border-radius:11px;padding:13px 15px;color:var(--branco);font-family:'Inter',sans-serif;font-size:14.5px;outline:none;transition:border-color .25s,box-shadow .25s}
-.hero-form input{height:48px}
-.hero-form textarea{min-height:76px;resize:vertical}
-.hero-form input:focus,.hero-form textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,75,.14)}
-.hero-form input::placeholder,.hero-form textarea::placeholder{color:#6b727b}
-.hero-form input.err,.hero-form textarea.err{border-color:#d9744e;box-shadow:0 0 0 3px rgba(217,116,78,.16)}
-.hero-form .btn{margin-top:6px}
+/* ===== FORMULARIO com anel animado (vive na seccao final) ===== */
+.orc-form{position:relative;padding:32px 30px 28px;border-radius:22px;background:var(--grad-card);box-shadow:0 24px 60px rgba(0,0,0,.5);z-index:1}
+.orc-form::before{content:"";position:absolute;inset:0;border-radius:22px;padding:1.6px;background:conic-gradient(from var(--angle),transparent 0deg,transparent 130deg,var(--gold) 210deg,var(--gold-claro) 265deg,#fff 300deg,var(--gold-claro) 330deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;animation:angleSpin 6s linear infinite;pointer-events:none;z-index:2}
+.orc-form>*{position:relative;z-index:1}
+.orc-form .fbadge{display:inline-flex;align-items:center;gap:6px;background:rgba(201,162,75,.14);border:1px solid var(--linha);color:var(--gold-claro);font-size:11.5px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;padding:5px 12px;border-radius:50px;margin-bottom:12px}
+.orc-form .ftitle{font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:var(--branco);margin-bottom:5px;letter-spacing:-.3px}
+.orc-form .fsub{font-size:13.5px;color:var(--texto2);margin-bottom:18px;line-height:1.5}
+.orc-form .frow{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.orc-form .field{margin-bottom:11px}
+.orc-form label{display:block;font-size:11.5px;font-weight:600;letter-spacing:.4px;color:var(--gold-claro);margin-bottom:5px}
+.orc-form input,.orc-form textarea{width:100%;background:rgba(19,22,25,.7);border:1px solid rgba(201,162,75,.2);border-radius:11px;padding:13px 15px;color:var(--branco);font-family:'Inter',sans-serif;font-size:14.5px;outline:none;transition:border-color .25s,box-shadow .25s}
+.orc-form input{height:48px}
+.orc-form textarea{min-height:76px;resize:vertical}
+.orc-form input:focus,.orc-form textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,75,.14)}
+.orc-form input::placeholder,.orc-form textarea::placeholder{color:#6b727b}
+.orc-form input.err,.orc-form textarea.err{border-color:#d9744e;box-shadow:0 0 0 3px rgba(217,116,78,.16)}
+.orc-form .btn{margin-top:6px}
 .form-note{font-size:11.5px;color:var(--texto2);text-align:center;margin-top:13px;line-height:1.5}
+.form-note a{color:var(--gold-claro);border-bottom:1px solid var(--linha)}
+.form-note a:hover{color:var(--branco)}
 .form-ok{display:none;text-align:center;padding:38px 10px}
 .form-ok.show{display:block}
 .form-ok .ok-ico{width:62px;height:62px;border-radius:50%;background:var(--grad-gold);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 8px 22px rgba(201,162,75,.35)}
 .form-ok .ok-ico svg{width:30px;height:30px;stroke:#161616;stroke-width:3;fill:none}
 .form-ok h3{font-size:21px;color:var(--branco);margin-bottom:8px}
 .form-ok p{font-size:14px;color:var(--texto)}
-@media(prefers-reduced-motion:reduce){.hero-form::before{animation:none}}
+@media(prefers-reduced-motion:reduce){.orc-form::before{animation:none}}
 
 /* ===== MARQUEE ===== */
 .marquee{background:transparent;height:110px;overflow-x:clip;overflow-y:visible;position:relative;z-index:40;margin-top:-56px;margin-bottom:-56px}
@@ -222,17 +237,9 @@ section{position:relative}.center{text-align:center}.maxw{max-width:760px;margin
 .zona-inner{position:relative;z-index:1;max-width:800px;margin:0 auto;text-align:center}
 .zona-inner p{font-size:17px;color:var(--texto);margin:0 auto 16px;max-width:640px;line-height:1.7}
 .zona-inner p strong{color:var(--gold-claro);font-weight:600}
-.zona-badges{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:30px 0 26px}
-.zona-badge{position:relative;display:inline-flex;align-items:center;gap:9px;font-family:'Cinzel',serif;font-size:15px;font-weight:600;letter-spacing:.4px;color:var(--gold-claro);background:rgba(201,162,75,.1);border:1px solid rgba(201,162,75,.4);border-radius:50px;padding:12px 24px;animation:badge-glow 3.2s ease-in-out infinite}
-.zona-badge:nth-child(2){animation-delay:.5s}
-.zona-badge svg{width:18px;height:18px;stroke:var(--gold-claro);stroke-width:1.8;fill:none}
-.zona-badge.soon{color:var(--texto2);border-color:var(--linha);background:rgba(201,162,75,.04);animation:none}
-.zona-badge.soon .soon-tag{font-size:10px;letter-spacing:.5px;text-transform:uppercase;background:rgba(201,162,75,.14);border-radius:6px;padding:2px 7px;color:var(--gold-claro)}
-@keyframes badge-glow{0%,100%{box-shadow:0 0 0 0 rgba(201,162,75,.3)}50%{box-shadow:0 0 18px 2px rgba(201,162,75,.22)}}
 .zona-cta{font-family:'Cinzel',serif;font-size:clamp(16px,2vw,19px);color:var(--branco);font-weight:600;margin-top:8px}
 .zona-cta a{color:var(--gold-claro);border-bottom:1.5px solid var(--gold);transition:color .2s}
 .zona-cta a:hover{color:#fff}
-@media(prefers-reduced-motion:reduce){.zona-badge{animation:none}}
 /* timeline CENTRALIZADA ALTERNADA (zigue-zague): linha ao centro, itens alternam de lado.
    linha dourada preenche no scroll + reveal em stagger */
 .zona-timeline{max-width:720px;margin:44px auto 30px;text-align:left}
@@ -249,14 +256,11 @@ section{position:relative}.center{text-align:center}.maxw{max-width:760px;margin
 .zstep:nth-child(odd) .zmark{right:-24px}
 .zstep:nth-child(even) .zmark{left:-24px}
 .zmark svg{width:22px;height:22px;stroke:#161616;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.zstep.soon .zmark{background:var(--base3);border:1px solid var(--linha);box-shadow:none}
-.zstep.soon .zmark svg{stroke:var(--gold-claro)}
 .zbody{padding-top:2px}
 .zbody h3{font-family:'Cinzel',serif;font-size:20px;color:var(--gold-claro);margin-bottom:4px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .zstep:nth-child(odd) .zbody h3{justify-content:flex-end}
 .zstep:nth-child(even) .zbody h3{justify-content:flex-start}
 .zbody p{font-size:14px;color:var(--texto);line-height:1.55}
-.zstep.soon .zbody h3{color:var(--texto2)}
 /* mobile: colapsa para um lado so (linha a esquerda) para legibilidade */
 @media(max-width:600px){
   .br-zona{display:none}
@@ -267,8 +271,8 @@ section{position:relative}.center{text-align:center}.maxw{max-width:760px;margin
 }
 @media(prefers-reduced-motion:reduce){.zstep{opacity:1;transform:none;transition:none}.zline{--fill:1}.zline::after{transition:none}}
 
-/* ===== CTA FINAL ===== */
-.sec-final{background:var(--grad-escuro);overflow:hidden;text-align:center}
+/* ===== CTA FINAL (2 colunas: conteudo a esquerda + formulario a direita) ===== */
+.sec-final{background:var(--grad-escuro);overflow:hidden}
 .sec-final::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,75,.16),transparent 60%);pointer-events:none}
 .sec-final::after{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);pointer-events:none;z-index:3}
 .sec-final .final-glow{position:absolute;top:50%;transform:translateY(-50%);width:300px;height:440px;border-radius:50%;filter:blur(64px);background:radial-gradient(circle,rgba(231,200,120,.45),rgba(201,162,75,.16) 46%,transparent 72%);pointer-events:none;z-index:0;opacity:.12;animation:sideGlow 6.5s ease-in-out infinite}
@@ -277,11 +281,12 @@ section{position:relative}.center{text-align:center}.maxw{max-width:760px;margin
 @keyframes sideGlow{0%,100%{opacity:.08}50%{opacity:.55}}
 @media(prefers-reduced-motion:reduce){.sec-final .final-glow{animation:none;opacity:.2}}
 @media(max-width:600px){.sec-final .final-glow{width:180px;height:300px;filter:blur(46px)}}
-.final-inner{position:relative;z-index:1;max-width:740px;margin:0 auto}
+.final-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.final-inner{position:relative;z-index:1;text-align:left}
 .final-inner h2{font-size:clamp(28px,3.8vw,46px);margin-bottom:16px;line-height:1.16}
-.final-inner .lead{font-size:17px;color:var(--texto);margin:0 auto 30px;max-width:620px}
-.final-inner .btn{margin:0 auto}
+.final-inner .lead{font-size:17px;color:var(--texto);margin:0 0 22px;max-width:560px}
 .final-micro{font-size:13.5px;color:var(--gold-claro);margin-top:18px;letter-spacing:.3px}
+.final-form{position:relative;z-index:1}
 
 /* ===== FOOTER ===== */
 footer{position:relative;background:#0f1215;color:var(--texto2);padding:46px 0 34px;text-align:center;font-size:13.5px}
@@ -295,6 +300,19 @@ footer .f-slogan{font-family:'Cinzel',serif;font-style:italic;color:var(--gold-c
 .footer-links .fl-sep{width:1px;height:14px;background:var(--linha)}
 .footer-region{margin-top:12px;font-size:12.5px;color:var(--texto2);opacity:.85}
 .footer-copy{margin-top:14px;opacity:.6;font-size:12px}
+.footer-note{font-size:11.5px;opacity:.75;letter-spacing:.2px}
+
+/* ===== FAB WHATSAPP (fixo ao longo de toda a pagina) =====
+   z-index acima do marquee (z-40) e das strips (z-30). Dourado da marca:
+   verde WhatsApp destoaria da paleta grafite/dourado. */
+.wa-fab{position:fixed;right:22px;bottom:22px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--grad-gold);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.45),0 0 0 1px rgba(231,200,120,.3) inset;transition:transform .25s,box-shadow .25s,opacity .3s,visibility .3s;animation:wa-pulse 3s ease-in-out infinite}
+.wa-fab svg{width:32px;height:32px;fill:#161616}
+.wa-fab:hover{transform:translateY(-3px) scale(1.05)}
+@keyframes wa-pulse{0%,100%{box-shadow:0 10px 26px rgba(0,0,0,.45),0 0 0 0 rgba(231,200,120,.5)}50%{box-shadow:0 10px 26px rgba(0,0,0,.45),0 0 0 12px rgba(231,200,120,0)}}
+/* escondido enquanto o formulario esta em ecra, para nao tapar o botao de submeter */
+.wa-fab.fab-hide{opacity:0;visibility:hidden;pointer-events:none}
+@media(prefers-reduced-motion:reduce){.wa-fab{animation:none}}
+@media(max-width:600px){.wa-fab{right:16px;bottom:16px;width:54px;height:54px}.wa-fab svg{width:29px;height:29px}}
 
 /* ===== SCROLL REVEAL ===== */
 .sr-hidden{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
@@ -302,7 +320,13 @@ footer .f-slogan{font-family:'Cinzel',serif;font-style:italic;color:var(--gold-c
 
 @media(max-width:960px){
   .hero-grid{grid-template-columns:1fr;gap:36px}
+  .hero-side{display:none}
   .hero-orb{display:none}
+  .final-grid{grid-template-columns:1fr;gap:40px}
+  .final-inner{text-align:center}
+  .final-inner .lead{margin-left:auto;margin-right:auto}
+  .final-form{text-align:center}
+  .final-form .orc-form{text-align:left}
   .quem-split{grid-template-columns:1fr;gap:40px}
   .quem-visual{order:-1;min-height:300px}
   .serv-grid{grid-template-columns:repeat(2,1fr)}
@@ -313,8 +337,8 @@ footer .f-slogan{font-family:'Cinzel',serif;font-style:italic;color:var(--gold-c
   .hero h1{font-size:clamp(24px,7vw,32px)}
   .sec h2,.final-inner h2{font-size:clamp(23px,6vw,30px)}
   .btn,.btn.lg{font-size:15px;padding:16px 22px;width:100%}
-  .hero-form{padding:26px 20px 24px}
-  .hero-form .frow{grid-template-columns:1fr}
+  .orc-form{padding:26px 20px 24px}
+  .orc-form .frow{grid-template-columns:1fr}
   .serv-grid{grid-template-columns:1fr}
   .marquee{height:96px;margin-top:-48px;margin-bottom:-48px}
   .marquee-bar{width:280%}
@@ -331,7 +355,7 @@ footer .f-slogan{font-family:'Cinzel',serif;font-style:italic;color:var(--gold-c
 <body>
 
 <!-- ===== HERO ===== -->
-<section class="hero" id="orcamento">
+<section class="hero">
   <img class="hero-bg" src="assets/bg/hero-bg.jpg" alt="" aria-hidden="true" decoding="async" fetchpriority="low">
   <div class="hero-orb" aria-hidden="true">
     <span class="orb-glow"></span>
@@ -340,66 +364,29 @@ footer .f-slogan{font-family:'Cinzel',serif;font-style:italic;color:var(--gold-c
   </div>
   <div class="wrap hero-grid">
     <div class="hero-copy sr-hidden">
-      <div class="seal">
-        <span class="seal-glow" aria-hidden="true"></span>
-        <svg class="seal-rot" viewBox="0 0 230 230" aria-hidden="true">
-          <defs><path id="seal-path" d="M 115 115 m -88 0 a 88 88 0 1 1 176 0 a 88 88 0 1 1 -176 0"/></defs>
-          <text class="seal-text"><textPath href="#seal-path" startOffset="0">MLA CONDOMÍNIOS &#183; A DIFERENÇA ESTÁ NA FORMA COMO CUIDAMOS &#183;&#160;</textPath></text>
-        </svg>
-        <span class="seal-core"><img src="assets/identidade-visual/MLA_dourado_transparente.png" alt="MLA Condomínios"></span>
+      <div class="hero-brand">
+        <div class="seal">
+          <span class="seal-glow" aria-hidden="true"></span>
+          <svg class="seal-rot" viewBox="0 0 230 230" aria-hidden="true">
+            <defs><path id="seal-path" d="M 115 115 m -88 0 a 88 88 0 1 1 176 0 a 88 88 0 1 1 -176 0"/></defs>
+            <text class="seal-text"><textPath href="#seal-path" startOffset="0">MLA CONDOMÍNIOS &#183; A DIFERENÇA ESTÁ NA FORMA COMO CUIDAMOS &#183;&#160;</textPath></text>
+          </svg>
+          <span class="seal-core"><img src="assets/identidade-visual/MLA_logo_crop.png" alt="" aria-hidden="true"></span>
+        </div>
+        <div class="brand-word">
+          <img src="assets/identidade-visual/MLA_logo_crop.png" alt="MLA Condomínios">
+        </div>
       </div>
-      <span class="pretitle">Administração e gestão de condomínios · Algarve</span>
-      <h1>Administração de condomínios em Faro e Olhão com <span class="gold-grad">quem está presente</span></h1>
-      <p class="sub">Gestão próxima, contas transparentes e resposta rápida. Peça um orçamento sem compromisso e veja a diferença na forma como cuidamos do seu condomínio.</p>
-      <div class="hero-micro">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"></path><path d="M12 7v5l3 2"></path></svg>
-        <span>Resposta ao seu pedido em pouco tempo. Sem letras pequenas.</span>
-      </div>
+      <span class="pretitle">Administração e gestão de condomínios · Faro e Olhão</span>
+      <h1>Administração de Condomínios em Faro e Olhão com <span class="gold-grad">gestão próxima e presente</span></h1>
+      <p class="sub">Organizamos a gestão administrativa, financeira e operacional do seu condomínio, com comunicação clara, contas transparentes e acompanhamento regular.</p>
+      <a class="btn lg hero-cta" href="https://wa.me/351968452099" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.892c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652c1.746.943 3.71 1.444 5.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.495-8.411"/></svg>Falar por WhatsApp
+      </a>
     </div>
 
-    <div class="hero-form sr-hidden">
-      <span class="form-orb" aria-hidden="true"><span class="fo-glow"></span><span class="fo-ring"></span><span class="fo-ring inner"></span></span>
-      <form id="orcForm" novalidate>
-        <span class="fbadge">Sem compromisso</span>
-        <h3 class="ftitle">Peça o seu orçamento</h3>
-        <p class="fsub">Preencha os dados abaixo. Entramos em contacto para conhecer o seu condomínio.</p>
-        <div class="field">
-          <label for="f-nome">Nome</label>
-          <input type="text" id="f-nome" name="nome" placeholder="O seu nome" required>
-        </div>
-        <div class="frow">
-          <div class="field">
-            <label for="f-email">Email</label>
-            <input type="email" id="f-email" name="email" placeholder="exemplo@email.com" required>
-          </div>
-          <div class="field">
-            <label for="f-tel">Telefone</label>
-            <input type="tel" id="f-tel" name="telefone" placeholder="Número de contacto" required>
-          </div>
-        </div>
-        <div class="frow">
-          <div class="field">
-            <label for="f-loc">Condomínio / localização</label>
-            <input type="text" id="f-loc" name="localizacao" placeholder="Ex.: Faro, Olhão..." required>
-          </div>
-          <div class="field">
-            <label for="f-frac">N.º de frações (opcional)</label>
-            <input type="text" id="f-frac" name="fracoes" placeholder="Ex.: 12">
-          </div>
-        </div>
-        <div class="field">
-          <label for="f-msg">Mensagem</label>
-          <textarea id="f-msg" name="mensagem" placeholder="Conte-nos o que procura"></textarea>
-        </div>
-        <button type="submit" class="btn full">Pedir orçamento</button>
-        <p class="form-note">Os seus dados servem apenas para responder ao seu pedido.<br>Sem partilha com terceiros.</p>
-      </form>
-      <div class="form-ok" id="formOk">
-        <span class="ok-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-        <h3>Pedido registado</h3>
-        <p>Obrigado. Entramos em contacto em breve para conhecer o seu condomínio.</p>
-      </div>
-    </div>
+    <!-- coluna direita intencionalmente vazia: o formulario vive agora na seccao final -->
+    <div class="hero-side" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -427,7 +414,7 @@ footer .f-slogan{font-family:'Cinzel',serif;font-style:italic;color:var(--gold-c
       <div class="quem-body sr-hidden">
         <span class="eyebrow outline">Quem somos</span>
         <h2 style="margin-top:16px">Uma administração que está ao seu lado</h2>
-        <p>A MLA Condomínios é uma empresa dedicada à administração e gestão de condomínios no Algarve.</p>
+        <p>A MLA Condomínios é uma marca dedicada à administração e gestão de condomínios em Faro e Olhão, com uma abordagem próxima, organizada e transparente.</p>
         <p>Nascemos para responder a um problema que muitos condóminos conhecem: administrações ausentes, contas pouco claras e respostas que nunca chegam.</p>
         <p>O nosso propósito é simples. <strong>Estar presente, comunicar de forma clara e cuidar de cada condomínio como se fosse nosso.</strong></p>
         <div class="slogan"><p>A diferença está na forma como cuidamos.</p></div>
@@ -484,7 +471,7 @@ footer .f-slogan{font-family:'Cinzel',serif;font-style:italic;color:var(--gold-c
         <div class="serv-img"><div class="ph"></div><img class="serv-photo" src="assets/cards/card-05.jpg" alt="Acompanhamento de fornecedores" loading="lazy" onerror="this.style.display='none'"></div>
         <div class="serv-card">
           <h3>Acompanhamento de fornecedores</h3>
-          <p>Escolha, contratação e supervisão de fornecedores e contratos de serviços.</p>
+          <p>Apoio na análise de orçamentos, acompanhamento de fornecedores e gestão de contratos de serviços.</p>
         </div>
       </div>
       <div class="serv-item sr-hidden">
@@ -505,7 +492,7 @@ footer .f-slogan{font-family:'Cinzel',serif;font-style:italic;color:var(--gold-c
         <div class="serv-img"><div class="ph"></div><img class="serv-photo" src="assets/cards/card-08.jpg" alt="Comunicação com os condóminos" loading="lazy" onerror="this.style.display='none'"></div>
         <div class="serv-card">
           <h3>Comunicação com os condóminos</h3>
-          <p>Canais abertos e respostas rápidas. Ninguém fica sem saber o que se passa.</p>
+          <p>Comunicação clara e regular, para que os condóminos estejam informados sobre os assuntos do condomínio.</p>
         </div>
       </div>
     </div>
@@ -533,45 +520,87 @@ footer .f-slogan{font-family:'Cinzel',serif;font-style:italic;color:var(--gold-c
     <div class="zona-inner sr-hidden">
       <span class="eyebrow">Zona de atuação</span>
       <h2 style="margin-top:16px">Perto de si, no Algarve</h2>
-      <p>Atuamos em <strong>Faro</strong> e <strong>Olhão</strong>, com a proximidade<br class="br-zona">que só quem está por perto consegue oferecer.</p>
-      <p>Conhecemos a região, os edifícios e os desafios<br class="br-zona">de gerir um condomínio no Algarve.</p>
+      <p>Atuamos em <strong>Faro</strong> e <strong>Olhão</strong>, com a proximidade <br class="br-zona">que só quem está por perto consegue oferecer.</p>
+      <p>Conhecemos a região, os edifícios e os desafios <br class="br-zona">de gerir um condomínio no Algarve.</p>
       <div class="zona-timeline">
         <div class="zline">
           <div class="zstep">
             <div class="zmark"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
-            <div class="zbody"><h3>Faro</h3><p>A operar, com gestão próxima e presente.</p></div>
+            <div class="zbody"><h3>Faro</h3><p>Zona de atuação principal, com gestão próxima e presente.</p></div>
           </div>
           <div class="zstep">
             <div class="zmark"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
-            <div class="zbody"><h3>Olhão</h3><p>A operar, com gestão próxima e presente.</p></div>
-          </div>
-          <div class="zstep soon">
-            <div class="zmark"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-            <div class="zbody"><h3>Tavira <span class="soon-tag">Em breve</span></h3><p>Estamos a crescer para chegar até si.</p></div>
-          </div>
-          <div class="zstep soon">
-            <div class="zmark"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-            <div class="zbody"><h3>Loulé <span class="soon-tag">Em breve</span></h3><p>Estamos a crescer para chegar até si.</p></div>
+            <div class="zbody"><h3>Olhão</h3><p>Zona de atuação principal, com gestão próxima e presente.</p></div>
           </div>
         </div>
       </div>
-      <p>Estamos a crescer. Em breve, também em <strong>Tavira</strong> e <strong>Loulé</strong>.</p>
-      <p class="zona-cta">O seu condomínio é em Faro ou Olhão? <a href="#orcamento">Peça já o seu orçamento.</a></p>
+      <p class="zona-cta">O seu condomínio é em Faro ou Olhão? <a href="#orcamento">Peça já a sua proposta.</a></p>
     </div>
   </div>
 </section>
 
-<!-- ===== CTA FINAL ===== -->
-<section class="sec sec-final">
+<!-- ===== CTA FINAL + FORMULARIO ===== -->
+<section class="sec sec-final" id="orcamento">
   <span class="final-glow left" aria-hidden="true"></span>
   <span class="final-glow right" aria-hidden="true"></span>
   <div class="wrap">
-    <div class="final-inner sr-hidden">
-      <span class="eyebrow">Último passo</span>
-      <h2 style="margin-top:16px">Dê ao seu condomínio a <span class="gold-grad">atenção que ele merece</span></h2>
-      <p class="lead">Peça um orçamento sem compromisso. Vamos conhecer o seu condomínio e mostrar-lhe uma gestão mais próxima, organizada e transparente.</p>
-      <a href="#orcamento" class="btn lg">Pedir orçamento</a>
-      <p class="final-micro">Gestão próxima · Contas transparentes · Faro e Olhão</p>
+    <div class="final-grid">
+      <div class="final-inner sr-hidden">
+        <span class="eyebrow">Último passo</span>
+        <h2 style="margin-top:16px">Dê ao seu condomínio a <span class="gold-grad">atenção que ele merece</span></h2>
+        <p class="lead">Peça uma proposta sem compromisso. Vamos conhecer o seu condomínio e mostrar-lhe uma gestão mais próxima, organizada e transparente.</p>
+        <p class="final-micro">Gestão próxima · Contas transparentes · Faro e Olhão</p>
+      </div>
+
+      <div class="final-form sr-hidden">
+        <p class="form-micro">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"></path><path d="M12 7v5l3 2"></path></svg>
+          <span>Resposta breve. Informação clara e sem compromisso.</span>
+        </p>
+        <div class="orc-form">
+        <span class="form-orb" aria-hidden="true"><span class="fo-glow"></span><span class="fo-ring"></span><span class="fo-ring inner"></span></span>
+        <form id="orcForm" novalidate>
+          <span class="fbadge">Sem compromisso</span>
+          <h3 class="ftitle">Peça a sua proposta</h3>
+          <p class="fsub">Preencha os dados abaixo. Entramos em contacto para conhecer o seu condomínio.</p>
+          <div class="field">
+            <label for="f-nome">Nome</label>
+            <input type="text" id="f-nome" name="nome" placeholder="O seu nome" required>
+          </div>
+          <div class="frow">
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input type="email" id="f-email" name="email" placeholder="exemplo@email.com" required>
+            </div>
+            <div class="field">
+              <label for="f-tel">Telefone</label>
+              <input type="tel" id="f-tel" name="telefone" placeholder="Número de contacto" required>
+            </div>
+          </div>
+          <div class="frow">
+            <div class="field">
+              <label for="f-loc">Condomínio / localização</label>
+              <input type="text" id="f-loc" name="localizacao" placeholder="Ex.: Faro, Olhão..." required>
+            </div>
+            <div class="field">
+              <label for="f-frac">N.º de frações (opcional)</label>
+              <input type="text" id="f-frac" name="fracoes" placeholder="Ex.: 12">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-msg">Mensagem</label>
+            <textarea id="f-msg" name="mensagem" placeholder="Conte-nos o que procura"></textarea>
+          </div>
+          <button type="submit" class="btn full">Solicitar proposta para o meu condomínio</button>
+          <p class="form-note">Os seus dados servem apenas para responder ao seu pedido. Sem partilha com terceiros.<br>Ao enviar, aceita a nossa <a href="#">Política de Privacidade</a>.</p>
+        </form>
+        <div class="form-ok" id="formOk">
+          <span class="ok-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <h3>Pedido registado</h3>
+          <p>Obrigado. Entramos em contacto em breve para conhecer o seu condomínio.</p>
+        </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -590,14 +619,21 @@ footer .f-slogan{font-family:'Cinzel',serif;font-style:italic;color:var(--gold-c
         <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>@mlacondominios
       </a>
       <span class="fl-sep"></span>
-      <a href="#" aria-label="Telefone / WhatsApp a confirmar">
-        <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L19 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Telefone / WhatsApp: a confirmar
+      <a href="https://wa.me/351968452099" target="_blank" rel="noopener" aria-label="Falar por WhatsApp: +351 968 452 099">
+        <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L19 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>+351 968 452 099 <span class="footer-note">(chamada para rede móvel nacional)</span>
       </a>
+      <span class="fl-sep"></span>
+      <a href="#">Política de Privacidade</a>
     </div>
     <p class="footer-region">Administração e gestão de condomínios — Faro · Olhão · Algarve</p>
     <p class="footer-copy">&copy; 2026 MLA Condomínios · Todos os direitos reservados</p>
   </div>
 </footer>
+
+<!-- ===== FAB WHATSAPP (fixo em toda a pagina) ===== -->
+<a class="wa-fab" href="https://wa.me/351968452099" target="_blank" rel="noopener" aria-label="Falar por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.892c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652c1.746.943 3.71 1.444 5.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.495-8.411"/></svg>
+</a>
 
 <script>
 (function(){
@@ -650,6 +686,18 @@ footer .f-slogan{font-family:'Cinzel',serif;font-style:italic;color:var(--gold-c
       ok.classList.add('show');
     });
   }
+
+  /* FAB do WhatsApp: recolhe enquanto o formulario esta em ecra, para nao tapar
+     o botao de submeter (sobretudo no mobile, onde o botao e full-width) */
+  (function(){
+    var fab = document.querySelector('.wa-fab');
+    var card = document.querySelector('.final-form');
+    if(!fab || !card || !('IntersectionObserver' in window)) return;
+    var fio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ fab.classList.toggle('fab-hide', e.isIntersecting); });
+    },{threshold:.2});
+    fio.observe(card);
+  })();
 
   /* Timeline da zona de atuacao: preenche a linha por scroll + revela itens em stagger */
   (function(){
