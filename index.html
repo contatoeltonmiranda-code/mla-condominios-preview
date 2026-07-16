@@ -57,15 +57,18 @@ section{position:relative}.center{text-align:center}.maxw{max-width:760px;margin
 .hero{padding:70px 0 96px;background:var(--grad-escuro);overflow:hidden}
 .hero::before{content:"";position:absolute;top:-14%;left:-8%;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,75,.14),transparent 62%);pointer-events:none}
 .hero::after{content:"";position:absolute;bottom:-22%;right:-12%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,75,.09),transparent 64%);pointer-events:none}
-/* imagem de fundo do hero: sutil, com MASCARA RADIAL (centro apaga, bordas revelam) */
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.22;z-index:0;pointer-events:none;filter:saturate(.9) brightness(.85);
-  -webkit-mask-image:radial-gradient(ellipse 72% 68% at 50% 50%,transparent 0%,transparent 30%,rgba(0,0,0,.55) 60%,#000 88%);
-  mask-image:radial-gradient(ellipse 72% 68% at 50% 50%,transparent 0%,transparent 30%,rgba(0,0,0,.55) 60%,#000 88%)}
-@media(max-width:600px){.hero-bg{opacity:.16}}
-.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:52px;align-items:center;position:relative;z-index:1}
+/* imagem de fundo do hero: viva, com MASCARA RADIAL ancorada A ESQUERDA
+   (zona transparente por tras do texto = imagem apagada; imagem revela-se do centro para a direita) */
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.55;z-index:0;pointer-events:none;filter:saturate(.9) brightness(.85);
+  -webkit-mask-image:radial-gradient(ellipse 82% 74% at 28% 50%,transparent 0%,transparent 44%,rgba(0,0,0,.55) 64%,#000 86%);
+  mask-image:radial-gradient(ellipse 82% 74% at 28% 50%,transparent 0%,transparent 44%,rgba(0,0,0,.55) 64%,#000 86%)}
+@media(max-width:600px){.hero-bg{opacity:.20;
+  -webkit-mask-image:radial-gradient(ellipse 96% 62% at 50% 50%,transparent 0%,transparent 40%,rgba(0,0,0,.5) 68%,#000 92%);
+  mask-image:radial-gradient(ellipse 96% 62% at 50% 50%,transparent 0%,transparent 40%,rgba(0,0,0,.5) 68%,#000 92%)}}
+.hero-grid{display:grid;grid-template-columns:1.7fr .3fr;gap:52px;align-items:center;position:relative;z-index:1}
 .hero .pretitle{display:inline-block;font-family:'Cinzel',serif;font-size:12.5px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold-claro);border:1px solid var(--linha);border-radius:50px;padding:8px 16px;margin-bottom:20px}
 .hero h1{font-size:clamp(28px,3.6vw,44px);font-weight:700;margin:0 0 18px;line-height:1.22;letter-spacing:.3px;color:var(--branco)}
-.hero .sub{font-size:clamp(16px,1.35vw,18px);max-width:540px;color:var(--texto);margin-bottom:20px}
+.hero .sub{font-size:clamp(16px,1.35vw,18px);max-width:640px;color:var(--texto);margin-bottom:20px}
 .hero .sub strong{color:var(--branco);font-weight:600}
 /* micro-linha de reforco: vive junto ao formulario na seccao final */
 .form-micro{display:inline-flex;align-items:center;gap:9px;background:rgba(201,162,75,.09);border:1px solid var(--linha);border-radius:12px;padding:11px 17px;font-size:14px;color:var(--gold-claro);font-weight:500;margin-bottom:16px}
@@ -80,21 +83,14 @@ section{position:relative}.center{text-align:center}.maxw{max-width:760px;margin
 .hero-orb .r1{width:210px;height:210px;animation:circSpin 30s linear infinite}
 .hero-orb .r2{width:264px;height:264px;border-color:rgba(201,162,75,.16);animation:circSpin 46s linear infinite reverse}
 .hero-copy{position:relative;z-index:1}
-/* marca na entrada: selo giratorio (maior) + wordmark MLA Condominios legivel ao lado */
-.hero-brand{display:flex;align-items:center;gap:26px;margin:0 0 26px;position:relative;z-index:2}
-.hero-copy .seal{flex:0 0 auto;width:184px;height:184px;margin:0;z-index:2}
-.hero-copy .seal .seal-core{width:92px;height:92px}
-.hero-copy .seal .seal-core img{width:64px}
-.hero-brand .brand-word{flex:0 1 auto;min-width:0}
-.hero-brand .brand-word img{width:100%;max-width:248px;height:auto;filter:drop-shadow(0 8px 22px rgba(0,0,0,.5))}
+/* marca na entrada: so o wordmark MLA Condominios (o selo giratorio mudou-se para .quem-visual) */
+.hero-brand{margin:0 0 22px;position:relative;z-index:2}
+.hero-brand .brand-word img{width:100%;max-width:170px;height:auto;filter:drop-shadow(0 8px 22px rgba(0,0,0,.5))}
 .hero-copy .pretitle,.hero-copy h1{position:relative;z-index:1}
 @media(prefers-reduced-motion:reduce){.hero-orb .deco-ring{animation:none}}
 @media(max-width:600px){
-  .hero-brand{gap:14px;margin:0 0 22px}
-  .hero-copy .seal{width:124px;height:124px}
-  .hero-copy .seal .seal-core{width:62px;height:62px}
-  .hero-copy .seal .seal-core img{width:44px}
-  .hero-brand .brand-word img{max-width:158px}
+  .hero-brand{margin:0 0 18px}
+  .hero-brand .brand-word img{max-width:130px}
 }
 /* anel decorativo sobreposto no canto sup. direito do form.
    Seletor com 2 classes: .orc-form>* define position:relative e venceria por ordem. */
@@ -168,10 +164,7 @@ section{position:relative}.center{text-align:center}.maxw{max-width:760px;margin
 /* ===== SECCAO QUEM SOMOS ===== */
 .sec-quem{background:var(--base2);padding-top:104px}
 .quem-split{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
-.quem-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:360px}
-/* LOGO grande como protagonista da seccao (substitui o circulo animado) */
-.quem-logo{position:relative;z-index:1;width:100%;max-width:880px;height:auto;margin:0 auto;filter:drop-shadow(0 14px 34px rgba(0,0,0,.55))}
-@media(max-width:600px){.quem-logo{max-width:440px}}
+.quem-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:452px}
 /* selo giratorio com slogan */
 .seal{position:relative;width:230px;height:230px;z-index:1}
 .seal .seal-glow{position:absolute;inset:-24px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,75,.24),transparent 66%);animation:profGlowPulse 4.6s ease-in-out infinite}
@@ -181,6 +174,15 @@ section{position:relative}.center{text-align:center}.maxw{max-width:760px;margin
 .seal .seal-core img{width:78px;height:auto}
 @keyframes profGlowPulse{0%,100%{opacity:.55;transform:scale(.97)}50%{opacity:1;transform:scale(1.03)}}
 @media(prefers-reduced-motion:reduce){.seal .seal-rot,.seal .seal-glow{animation:none}}
+/* selo como protagonista visual de Quem somos (veio do hero, agora em escala grande).
+   Regras proprias: os seletores antigos do hero deixaram de aplicar aqui.
+   Medidas internas em % para o seal-core acompanhar a escala (base: core 112/230, img 78/112). */
+.quem-visual .seal{width:400px;height:400px}
+.quem-visual .seal .seal-core{width:48.7%;height:48.7%}
+.quem-visual .seal .seal-core img{width:69.6%}
+@media(max-width:600px){
+  .quem-visual .seal{width:260px;height:260px}
+}
 .quem-body h2{margin-bottom:18px}
 .quem-body p{font-size:16px;color:var(--texto);margin-bottom:14px;line-height:1.7}
 .quem-body p strong{color:var(--gold-claro);font-weight:600}
@@ -328,7 +330,7 @@ footer .f-slogan{font-family:'Cinzel',serif;font-style:italic;color:var(--gold-c
   .final-form{text-align:center}
   .final-form .orc-form{text-align:left}
   .quem-split{grid-template-columns:1fr;gap:40px}
-  .quem-visual{order:-1;min-height:300px}
+  .quem-visual{order:-1;min-height:312px}
   .serv-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:600px){
@@ -365,14 +367,6 @@ footer .f-slogan{font-family:'Cinzel',serif;font-style:italic;color:var(--gold-c
   <div class="wrap hero-grid">
     <div class="hero-copy sr-hidden">
       <div class="hero-brand">
-        <div class="seal">
-          <span class="seal-glow" aria-hidden="true"></span>
-          <svg class="seal-rot" viewBox="0 0 230 230" aria-hidden="true">
-            <defs><path id="seal-path" d="M 115 115 m -88 0 a 88 88 0 1 1 176 0 a 88 88 0 1 1 -176 0"/></defs>
-            <text class="seal-text"><textPath href="#seal-path" startOffset="0">MLA CONDOMÍNIOS &#183; A DIFERENÇA ESTÁ NA FORMA COMO CUIDAMOS &#183;&#160;</textPath></text>
-          </svg>
-          <span class="seal-core"><img src="assets/identidade-visual/MLA_logo_crop.png" alt="" aria-hidden="true"></span>
-        </div>
         <div class="brand-word">
           <img src="assets/identidade-visual/MLA_logo_crop.png" alt="MLA Condomínios">
         </div>
@@ -409,7 +403,14 @@ footer .f-slogan{font-family:'Cinzel',serif;font-style:italic;color:var(--gold-c
   <div class="wrap">
     <div class="quem-split">
       <div class="quem-visual sr-hidden">
-        <img class="quem-logo" src="assets/identidade-visual/MLA_dourado_transparente.png" alt="MLA Condomínios" loading="lazy">
+        <div class="seal">
+          <span class="seal-glow" aria-hidden="true"></span>
+          <svg class="seal-rot" viewBox="0 0 230 230" aria-hidden="true">
+            <defs><path id="seal-path" d="M 115 115 m -88 0 a 88 88 0 1 1 176 0 a 88 88 0 1 1 -176 0"/></defs>
+            <text class="seal-text"><textPath href="#seal-path" startOffset="0">MLA CONDOMÍNIOS &#183; A DIFERENÇA ESTÁ NA FORMA COMO CUIDAMOS &#183;&#160;</textPath></text>
+          </svg>
+          <span class="seal-core"><img src="assets/identidade-visual/MLA_logo_crop.png" alt="MLA Condomínios"></span>
+        </div>
       </div>
       <div class="quem-body sr-hidden">
         <span class="eyebrow outline">Quem somos</span>
